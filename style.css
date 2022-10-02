@@ -1,5 +1,7 @@
 .input-box-wrapper {
+  padding-top: 4px !important;
   width: 316px;
+  height: 316px !important;
   color: rgb(255, 255, 255);
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   border-radius: 10px;
@@ -8,48 +10,11 @@
 }
 
 .input-box {
+  border-radius: 10px;
   height: 100px;
   width: 100px;
 }
 
 .input-box:hover {
-  box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 0.08);
-}
-
-.-one {
-  border-radius: 0px 0px 10px 0px;
-}
-
-
-
-.-two {
-  border-radius: 0px 0px 10px 10px;
-}
-
-.-three {
-  border-radius: 0px 0px 0px 10px;
-}
-
-.-four {
-  border-radius: 0px 10px 10px 0px;
-}
-
-.-five {
-  border-radius: 10px;
-}
-
-.-six {
-  border-radius: 10px 0px 0px 10px;
-}
-
-.-seven {
-  border-radius: 0px 10px 0px 0px;
-}
-
-.-eight {
-  border-radius: 10px 10px 0px 0px;
-}
-
-.-nine {
-  border-radius: 10px 0px 0px 0px;
+  box-shadow: inset 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
 }
