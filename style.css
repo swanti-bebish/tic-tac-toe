@@ -1,6 +1,10 @@
 .input-box-wrapper {
   width: 316px;
+  color: rgb(255, 255, 255);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
   border-radius: 10px;
+  font-size: 63px;
+  text-align: center;
 }
 
 .input-box {
@@ -9,7 +13,6 @@
 }
 
 .input-box:hover {
-  /* border-radius: 10px; */
   box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 0.08);
 }
 
