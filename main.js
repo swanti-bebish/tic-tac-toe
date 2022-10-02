@@ -1,8 +1,9 @@
-var isX = true
+var isX = true,
+ hasWinner = false
 function attack(event) {
   var inputBox = event.currentTarget
 
-  if (inputBox.textContent === "") {
+  if (inputBox.textContent === "" && !hasWinner) {
     if (isX) {
       inputBox.textContent = "X"
       isX = false
@@ -60,10 +61,12 @@ function markAsSet(boxA, boxB, boxC) {
   boxes.forEach(function(box) {
     box.classList.add("text-danger")
   })
+  hasWinner = true
   setTimeout(function() {
     for (var i = 1; i <= 9; i++) {
       document.getElementById("box"+i).textContent = ""
       document.getElementById("box"+i).classList.remove("text-danger")
+      hasWinner = false
    }
   }, 2000)
 }
