@@ -1,11 +1,11 @@
 .input-box-wrapper {
-  width: 241px;
+  width: 316px;
   border-radius: 10px;
 }
 
 .input-box {
-  height: 75px;
-  width: 75px;
+  height: 100px;
+  width: 100px;
 }
 
 .input-box:hover {
