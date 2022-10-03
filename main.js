@@ -1,15 +1,23 @@
 var isX = true,
  hasWinner = false
 function attack(event) {
-  var inputBox = event.currentTarget
+  xIcon = document.createElement("img"),
+  oIcon = document.createElement("img")
 
-  if (inputBox.textContent === "" && !hasWinner) {
+  xIcon.src = "assets/icons/x.png"
+  oIcon.src = "assets/icons/o.png"
+  xIconWin = "assets/icons/ox_win.png"
+  xIcon.style.cssText = "position: relative; top: -7px;"
+  oIcon.style.cssText = "position: relative; top: -7px;"
+  var inputBox = event.currentTarget
+  
+  if (inputBox.innerHTML === "" && !hasWinner) {
     if (isX) {
-      inputBox.textContent = "X"
+      inputBox.append(xIcon)
       isX = false
       winChecker()
     } else {
-      inputBox.textContent = "O"
+      inputBox.append(oIcon)
       isX = true
       winChecker()
     }
@@ -27,29 +35,40 @@ function winChecker() {
   box8 = document.getElementById("box8"),
   box9 = document.getElementById("box9")
 
-  if (box1.textContent == box2.textContent && box2.textContent == box3.textContent && box1.textContent != "") {
+  if (box1.innerHTML == box2.innerHTML && box2.innerHTML == box3.innerHTML && box1.innerHTML != "") {
     markAsSet(box1, box2, box3)
-  } else if (box4.textContent == box5.textContent && box5.textContent == box6.textContent && box4.textContent != "") {
+  } else if (box4.innerHTML == box5.innerHTML && box5.innerHTML == box6.innerHTML && box4.innerHTML != "") {
     markAsSet(box4, box5, box6)
-  } else if (box7.textContent == box8.textContent && box8.textContent == box9.textContent && box7.textContent != "") {
+  } else if (box7.innerHTML == box8.innerHTML && box8.innerHTML == box9.innerHTML && box7.innerHTML != "") {
     markAsSet(box7, box8, box9)
-  } else if (box1.textContent == box4.textContent && box4.textContent == box7.textContent && box1.textContent != "") {
+  } else if (box1.innerHTML == box4.innerHTML && box4.innerHTML == box7.innerHTML && box1.innerHTML != "") {
     markAsSet(box1, box4, box7)
-  } else if (box2.textContent == box5.textContent && box5.textContent == box8.textContent && box2.textContent != "") {
+  } else if (box2.innerHTML == box5.innerHTML && box5.innerHTML == box8.innerHTML && box2.innerHTML != "") {
     markAsSet(box2, box5, box8)
-  } else if (box3.textContent == box6.textContent && box6.textContent == box9.textContent && box3.textContent != "") {
+  } else if (box3.innerHTML == box6.innerHTML && box6.innerHTML == box9.innerHTML && box3.innerHTML != "") {
     markAsSet(box3, box6, box9)
-  } else if (box1.textContent == box5.textContent && box5.textContent == box9.textContent && box1.textContent != "") {
+  } else if (box1.innerHTML == box5.innerHTML && box5.innerHTML == box9.innerHTML && box1.innerHTML != "") {
     markAsSet(box1, box5, box9)
-  } else if (box3.textContent == box5.textContent && box5.textContent == box7.textContent && box3.textContent != "") {
+  } else if (box3.innerHTML == box5.innerHTML && box5.innerHTML == box7.innerHTML && box3.innerHTML != "") {
     markAsSet(box3, box5, box7)
-  } else if (![box1, box2, box3, box4, box5, box6, box7, box8, box9].map(box => box.textContent != "" ? "true" : "false").includes("false")) {
+  } else if (![box1, box2, box3, box4, box5, box6, box7, box8, box9].map(box => box.innerHTML != "" ? "true" : "false").includes("false")) {
     for (var i = 1; i <= 9; i++) {
-      document.getElementById("box"+i).classList.add("text-success")
+      xIconTie = document.createElement("img"),
+      oIconTie = document.createElement("img")
+      xIconTie.src = "assets/icons/x_tie.png"
+      oIconTie.src = "assets/icons/o_tie.png"
+      xIconTie.style.cssText = "position: relative; top: -7px;"
+      oIconTie.style.cssText = "position: relative; top: -7px;"
+      if (document.getElementById("box"+i).childNodes[0].src.includes("x.png")) {
+        document.getElementById("box"+i).innerHTML = ""
+        document.getElementById("box"+i).appendChild(xIconTie)
+      } else {
+        document.getElementById("box"+i).innerHTML = ""
+        document.getElementById("box"+i).appendChild(oIconTie)
+      }
       setTimeout(function() {
         for (var i = 1; i <= 9; i++) {
-          document.getElementById("box"+i).textContent = ""
-          document.getElementById("box"+i).classList.remove("text-success")
+          document.getElementById("box"+i).innerHTML = ""
        }
       }, 2000)
    }
@@ -59,13 +78,24 @@ function winChecker() {
 function markAsSet(boxA, boxB, boxC) {
   var boxes = [boxA, boxB, boxC]
   boxes.forEach(function(box) {
-    box.classList.add("text-danger")
+    xIconWin = document.createElement("img"),
+    oIconWin = document.createElement("img")
+    xIconWin.src = "assets/icons/x_win.png"
+    oIconWin.src = "assets/icons/o_win.png"
+    xIconWin.style.cssText = "position: relative; top: -7px;"
+    oIconWin.style.cssText = "position: relative; top: -7px;"
+    if (box.childNodes[0].src.includes("x.png")) {
+      box.innerHTML = ""
+      box.appendChild(xIconWin)
+    } else if (box.childNodes[0].src.includes("o.png")) {
+      box.innerHTML = ""
+      box.appendChild(oIconWin)
+    }
   })
   hasWinner = true
   setTimeout(function() {
     for (var i = 1; i <= 9; i++) {
-      document.getElementById("box"+i).textContent = ""
-      document.getElementById("box"+i).classList.remove("text-danger")
+      document.getElementById("box"+i).innerHTML = ""
       hasWinner = false
    }
   }, 2000)

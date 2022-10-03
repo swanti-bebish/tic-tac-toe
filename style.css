@@ -1,9 +1,14 @@
+@font-face {
+  font-family: 'Comic Sans MS';
+  src: url("comic-sans-ms/comici.ttf");
+}
+
 .input-box-wrapper {
   padding-top: 4px !important;
   width: 316px;
   height: 316px !important;
   color: rgb(255, 255, 255);
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
   border-radius: 10px;
   font-size: 63px;
   text-align: center;
