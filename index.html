@@ -9,21 +9,41 @@
     <script src="main.js"></script>
   </head>
   <body class="bg-dark">
-    <div class="bg-white p-0 mt-5 input-box-wrapper mx-auto my-auto">
-      <div class="row justify-content-center">
-        <div id="box1" class="col-3 input-box -one bg-dark" onclick="attack(event)"></div>
-        <div id="box2" class="col-3 input-box -two bg-dark mx-1" onclick="attack(event)"></div>
-        <div id="box3" class="col-3 input-box -three bg-dark" onclick="attack(event)"></div>
+    <div class="main-container mx-auto">
+      <div class="bg-white p-0 mt-5 input-box-wrapper">
+        <div class="row justify-content-center">
+          <div id="box1" class="col-3 input-box -one bg-dark" onclick="attack(event)"></div>
+          <div id="box2" class="col-3 input-box -two bg-dark mx-1" onclick="attack(event)"></div>
+          <div id="box3" class="col-3 input-box -three bg-dark" onclick="attack(event)"></div>
+        </div>
+        <div class="row my-1 justify-content-center">
+          <div id="box4" class="col-3 input-box -four bg-dark" onclick="attack(event)"></div>
+          <div id="box5" class="col-3 input-box -five bg-dark mx-1" onclick="attack(event)"></div>
+          <div id="box6" class="col-3 input-box -six bg-dark" onclick="attack(event)"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div id="box7" class="col-3 input-box -seven bg-dark" onclick="attack(event)"></div>
+          <div id="box8" class="col-3 input-box -eight bg-dark mx-1" onclick="attack(event)"></div>
+          <div id="box9" class="col-3 input-box -nine bg-dark" onclick="attack(event)"></div>
+        </div>
       </div>
-      <div class="row my-1 justify-content-center">
-        <div id="box4" class="col-3 input-box -four bg-dark" onclick="attack(event)"></div>
-        <div id="box5" class="col-3 input-box -five bg-dark mx-1" onclick="attack(event)"></div>
-        <div id="box6" class="col-3 input-box -six bg-dark" onclick="attack(event)"></div>
-      </div>
-      <div class="row justify-content-center">
-        <div id="box7" class="col-3 input-box -seven bg-dark" onclick="attack(event)"></div>
-        <div id="box8" class="col-3 input-box -eight bg-dark mx-1" onclick="attack(event)"></div>
-        <div id="box9" class="col-3 input-box -nine bg-dark" onclick="attack(event)"></div>
+      <div class="user-details-wrapper">
+        <div class="row">
+          <div class="col-12 offender py-2">
+            <div class="fs-5"><input type="text" value="User1" class="text-white bg-transparent border-0 user-input w-75" id="userOne"></div>
+            <div class="ps-3">
+              <label for="X" class="text-danger fs-4" id="X">X</label>
+              <span class="text-white user-score-wrapper"> - <span id="userOneScore">0</span></span>
+            </div>
+          </div>
+          <div class="col-12 py-2">
+            <div class="fs-5"><input type="text" value="User2" class="text-white bg-transparent border-0 user-input w-75" id="userTwo"></div>
+            <div class="ps-3">
+              <label for="X" class="text-danger fs-4" id="O">O</label>
+              <span class="text-white user-score-wrapper"> - <span id="userTwoScore">0</span></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

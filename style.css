@@ -1,14 +1,15 @@
-@font-face {
-  font-family: 'Comic Sans MS';
-  src: url("comic-sans-ms/comici.ttf");
+body {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.main-container {
+  width: 316px;
 }
 
 .input-box-wrapper {
   padding-top: 4px !important;
-  width: 316px;
   height: 316px !important;
   color: rgb(255, 255, 255);
-  /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
   border-radius: 10px;
   font-size: 63px;
   text-align: center;
@@ -21,5 +22,25 @@
 }
 
 .input-box:hover {
+  box-shadow: inset 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
+}
+
+.user-details-wrapper {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.user-input {
+  outline: none;
+}
+
+.user-score-wrapper {
+  position: relative;
+  top: -3px;
+}
+
+.offender {
+  border-radius: 10px;
   box-shadow: inset 0px 0px 10px 3px rgba(255, 255, 255, 0.5);
 }

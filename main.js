@@ -1,8 +1,13 @@
 var isX = true,
  hasWinner = false
+
 function attack(event) {
-  xIcon = document.createElement("img"),
+  xIcon = document.createElement("img")
   oIcon = document.createElement("img")
+  userOne = document.getElementById("userOne")
+  userTwo = document.getElementById("userTwo")
+  Xlabel = document.getElementById("X")
+  Olabel = document.getElementById("O")
 
   xIcon.src = "assets/icons/x.png"
   oIcon.src = "assets/icons/o.png"
@@ -15,10 +20,34 @@ function attack(event) {
     if (isX) {
       inputBox.append(xIcon)
       isX = false
+      // userOne.classList.add("text-white")
+      // userOne.classList.remove("text-primary")
+      // userTwo.classList.add("text-primary")
+      // userTwo.classList.remove("text-white")
+
+      // Xlabel.classList.add("text-danger")
+      // Xlabel.classList.remove("text-success")
+      // Olabel.classList.add("text-success")
+      // Olabel.classList.remove("text-danger")
+
+      userTwo.parentElement.parentElement.classList.add("offender")
+      userOne.parentElement.parentElement.classList.remove("offender")
       winChecker()
     } else {
       inputBox.append(oIcon)
       isX = true
+      // userOne.classList.remove("text-white")
+      // userOne.classList.add("text-primary")
+      // userTwo.classList.remove("text-primary")
+      // userTwo.classList.add("text-white")
+
+      // Xlabel.classList.remove("text-danger")
+      // Xlabel.classList.add("text-success")
+      // Olabel.classList.remove("text-success")
+      // Olabel.classList.add("text-danger")
+
+      userTwo.parentElement.parentElement.classList.remove("offender")
+      userOne.parentElement.parentElement.classList.add("offender")
       winChecker()
     }
   }
@@ -77,18 +106,26 @@ function winChecker() {
 
 function markAsSet(boxA, boxB, boxC) {
   var boxes = [boxA, boxB, boxC]
+  scored = false
   boxes.forEach(function(box) {
-    xIconWin = document.createElement("img"),
+    xIconWin = document.createElement("img")
     oIconWin = document.createElement("img")
+    userOneScore = document.getElementById("userOneScore")
+    userTwoScore = document.getElementById("userTwoScore")
     xIconWin.src = "assets/icons/x_win.png"
     oIconWin.src = "assets/icons/o_win.png"
     xIconWin.style.cssText = "position: relative; top: -7px;"
     oIconWin.style.cssText = "position: relative; top: -7px;"
+
     if (box.childNodes[0].src.includes("x.png")) {
       box.innerHTML = ""
+      if (!scored) userOneScore.textContent = parseInt(userOneScore.textContent) + 1
+      scored = true
       box.appendChild(xIconWin)
     } else if (box.childNodes[0].src.includes("o.png")) {
       box.innerHTML = ""
+      if (!scored) userTwoScore.textContent = parseInt(userTwoScore.textContent) + 1
+      scored = true
       box.appendChild(oIconWin)
     }
   })
